@@ -16,11 +16,14 @@ SELECT * FROM countrylanguages WHERE language='Italian' ;
 
 -- Clue #4: We're booking the first flight out – maybe we've actually got a chance to catch her this time. There are only two cities she could be flying to in the country. One is named the same as the country – that would be too obvious. We're following our gut on this one; find out what other city in that country she might be flying to.
 
- SELECT * FROM cities WHERE countrycode='SMR';-- 3170 | Serravalle | SMR         | Serravalle/Dogano |       4802
+ SELECT * FROM cities WHERE countrycode='SMR';
+ 
+ -- 3170 | Serravalle | SMR         | Serravalle/Dogano |       4802
 
 -- Clue #5: Oh no, she pulled a switch – there are two cities with very similar names, but in totally different parts of the globe! She's headed to South America as we speak; go find a city whose name is like the one we were headed to, but doesn't end the same. Find out the city, and do another search for what country it's in. Hurry!
 
 world=# SELECT * FROM cities WHERE name LIKE 'Serra';
+SELECT * FROM countries WHERE code='BRA';
 -- 265 | Serra | BRA         | Espírito Santo |     302666
 -- BRA  | Brazil | South America | South America | 8.547403e+06 |      1822 |  170115000 |           62.9 | 776739.00 | 804108.00 | Brasil    | Federal Republic | Fernando Henrique Cardoso |     211 | BR
 
